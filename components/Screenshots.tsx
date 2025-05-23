@@ -62,33 +62,32 @@ export default function Screenshots() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className={`container mx-auto px-4 ${
-              index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-            } flex flex-col md:flex-row items-center gap-16 mb-48 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/60 backdrop-blur-sm`}
+            className={`container mx-auto px-4 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}
+            flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-16 md:mb-48 p-4 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/60 backdrop-blur-sm`}
           >
             {/* Content */}
             <motion.div
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex-1 space-y-6"
+              className="flex-1 space-y-4 md:space-y-6"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-blue-600">
+              <h2 className="text-2xl md:text-4xl font-bold text-blue-600">
                 {screenshot.title}
               </h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-base md:text-lg text-gray-600">
                 {screenshot.description}
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-2 md:space-y-3">
                 {screenshot.features.map((feature, idx) => (
                   <motion.li
                     key={idx}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 * idx }}
-                    className="flex items-center gap-2 text-gray-600"
+                    className="flex items-center gap-1 md:gap-2 text-gray-600 text-sm md:text-base"
                   >
-                    <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 md:w-5 md:h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {feature}
@@ -102,13 +101,13 @@ export default function Screenshots() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex-1 relative"
+              className="flex-1 relative w-full"
             >
-              <div className="relative w-full max-w-2xl mx-auto">
+              <div className="relative w-full max-w-sm md:max-w-2xl mx-auto">
                 {/* Laptop Frame */}
                 <div className="relative w-full pt-[60%] bg-gradient-to-r from-blue-100 to-blue-200 rounded-t-xl shadow-lg">
                   {/* Screen Content */}
-                  <div className="absolute inset-2 bg-white rounded-lg overflow-hidden">
+                  <div className="absolute inset-1 md:inset-2 bg-white rounded-lg overflow-hidden">
                     <Image
                       src={screenshot.image}
                       alt={screenshot.title}
@@ -119,8 +118,8 @@ export default function Screenshots() {
                   </div>
                 </div>
                 {/* Laptop Base */}
-                <div className="relative h-[20px] bg-gradient-to-r from-blue-200 to-blue-300 rounded-b-xl">
-                  <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[20%] h-[3px] bg-blue-400/20 rounded-full" />
+                <div className="relative h-[10px] md:h-[20px] bg-gradient-to-r from-blue-200 to-blue-300 rounded-b-xl">
+                  <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[30%] md:w-[20%] h-[2px] md:h-[3px] bg-blue-400/20 rounded-full" />
                 </div>
               </div>
             </motion.div>
