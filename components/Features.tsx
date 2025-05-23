@@ -161,7 +161,7 @@ export default function Features() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-pink-50 to-yellow-50">
-      <div className="container mx-auto px-4 py-16 max-w-7xl relative z-10">
+      <div className="container mx-auto px-4 py-16 max-w-7xl relative z-10 ">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
           Features & Capabilities
         </h2>

@@ -1,106 +1,114 @@
 'use client'
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import Image from 'next/image'
+import { useState } from 'react'
 
 const screenshots = [
-  { title: "Dashboard Overview", image: "/dashboard.png", description: "Comprehensive recruitment analytics" },
-  { title: "Candidate Profiles", image: "/candidates.png", description: "Detailed applicant information" },
-  { title: "Interview Schedule", image: "/schedule.png", description: "Easy interview management" }
+  {
+    title: "Enquiry Management Dashboard",
+    description: "Manage job enquiries with clarity—track roles, budgets, qualifications, and applicant experience efficiently in a centralized panel.",
+    image: "/Picture1.png",
+    features: [
+      "Detailed job designation, department, and requirement entries",
+      "Budget, qualification, and experience fields per job role",
+      "Real-time user login and enquiry tracking",
+      "Built-in tools: email, contact, inbox, and chat"
+    ]
+  },
+  {
+    title: "Updated Enquiry Management",
+    description: "Refined interface for structured job enquiry handling with enhanced data clarity and administrative tools.",
+    image: "/Picture2.png",
+    features: [
+      "Defined enquiry parameters: job codes, requirement count, budget",
+      "Summary table for all job entries with totals",
+      "Efficient real-time updates and communication tools",
+      "Updated visual structure for SALES ASS&M department planning"
+    ]
+  },
+  {
+    title: "Tax Management Panel",
+    description: "Set and manage custom tax configurations with control over tax type, category, percentage, and formulas.",
+    image: "/Picture3.png",
+    features: [
+      "Custom tax creation (CST, VAT, GST) with rates & modes",
+      "Round-off/general calculation types and return modes",
+      "Centralized tax list for quick access and editing",
+      "Instant updates with reset functionality"
+    ]
+  },
+  {
+    title: "Country Master Management",
+    description: "Simplify geographic data accuracy with centralized country-code management and editable listings.",
+    image: "/Picture4.png",
+    features: [
+      "Add, update, or deactivate countries with codes",
+      "Tabular view of all entries for quick review",
+      "Action icons for edit/delete per row",
+      "Seamless interface for managing regional data"
+    ]
+  }
 ]
 
 export default function Screenshots() {
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  // Auto-loop through screenshots every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % screenshots.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-pink-50 to-yellow-50 pt-22">
-      <div className="container mx-auto px-4 py-16 max-w-4xl relative z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900"
-        >
-          Platform Preview
-        </motion.h2>
-        <div className="flex flex-col items-center">
-          {/* Computer monitor frame with animated screenshot */}
-          <div className="relative w-full max-w-3xl mx-auto flex flex-col items-center"> {/* Increased max-w-2xl to max-w-4xl */}
-            {/* Monitor body */}
-            <div className="relative w-full aspect-[16/9] bg-gray-200 rounded-t-3xl rounded-b-lg shadow-2xl border-4 border-gray-300 overflow-hidden flex items-center justify-center" style={{ minHeight: 400 }}> {/* Added minHeight */}
-              {/* Screen area */}
-              <div className="absolute left-[5%] top-[6%] w-[90%] h-[80%] bg-white rounded-xl overflow-hidden flex items-center justify-center z-10 shadow-inner">
-                {screenshots.map((screenshot, index) => (
-                  <motion.img
-                    key={index}
-                    src={screenshot.image}
-                    alt={screenshot.title}
-                    initial={{ opacity: 0, scale: 0.97 }}
-                    animate={{
-                      opacity: index === activeIndex ? 1 : 0,
-                      scale: index === activeIndex ? 1 : 0.97
-                    }}
-                    transition={{ duration: 0.6, type: "spring" }}
-                    className={`absolute w-full h-full object-contain transition-all duration-500 ${index === activeIndex ? 'z-10' : 'z-0'}`}
-                    style={{ display: index === activeIndex ? 'block' : 'none' }}
-                  />
-                ))}
-              </div>
-              {/* Monitor bezel */}
-              <div className="absolute inset-0 border-8 border-gray-300 rounded-t-3xl rounded-b-lg pointer-events-none" />
-              {/* Monitor camera */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-gray-400 rounded-full opacity-60" />
-            </div>
-            {/* Monitor stand */}
-            <div className="w-32 h-5 bg-gray-300 rounded-b-xl mx-auto -mt-2 shadow" /> {/* Increased width and height */}
-            <div className="w-16 h-3 bg-gray-400 rounded-b-lg mx-auto mt-1" /> {/* Increased width and height */}
-          </div>
-          {/* Screenshot info */}
-          <div className="mt-8 text-center">
-            <motion.h3
-              key={screenshots[activeIndex].title}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-xl font-bold text-blue-700 mb-2"
-            >
-              {screenshots[activeIndex].title}
-            </motion.h3>
-            <motion.p
-              key={screenshots[activeIndex].description}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-gray-600"
-            >
-              {screenshots[activeIndex].description}
-            </motion.p>
-          </div>
-          {/* Dots navigation */}
-          <div className="flex justify-center mt-8 gap-3">
-            {screenshots.map((_, index) => (
-              <motion.button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                animate={index === activeIndex ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-                transition={{ duration: 0.8, repeat: index === activeIndex ? Infinity : 0, repeatType: "reverse" }}
-                className={`w-4 h-4 rounded-full border-2 border-gray-200 shadow-md transition-all duration-300
-                  ${index === activeIndex
-                    ? 'bg-blue-500'
-                    : 'bg-gray-300'
-                  }`}
-              />
-            ))}
-          </div>
-        </div>
+    <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-purple-50 overflow-hidden">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-bold text-gray-800">
+          Product Screenshots
+        </h2>
+        <p className="text-gray-500 mt-2 max-w-xl mx-auto">
+          Explore the key modules of our ERP system with visual previews and feature highlights.
+        </p>
       </div>
+
+      {screenshots.map((shot, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className={`container mx-auto px-6 flex flex-col lg:flex-row items-center gap-14 mb-32 ${
+            i % 2 !== 0 ? 'lg:flex-row-reverse' : ''
+          }`}
+        >
+          <div className="flex-1 space-y-5">
+            <h3 className="text-3xl font-semibold text-blue-700">{shot.title}</h3>
+            <p className="text-gray-600 text-lg">{shot.description}</p>
+            <ul className="space-y-3">
+              {shot.features.map((f, j) => (
+                <motion.li
+                  key={j}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: j * 0.1 }}
+                  className="flex items-start gap-2 text-gray-700"
+                >
+                  <span className="mt-1 text-blue-600">✔</span>
+                  {f}
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex-1 relative">
+            <div className="relative w-full pt-[60%] bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl shadow-xl overflow-hidden backdrop-blur-sm">
+              <div className="absolute inset-2 bg-white rounded-lg overflow-hidden">
+                <Image
+                  src={shot.image}
+                  alt={shot.title}
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="h-4 bg-gradient-to-r from-blue-200 to-blue-300 rounded-b-xl mt-1 relative">
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[15%] h-[3px] bg-blue-400/30 rounded-full" />
+            </div>
+          </div>
+        </motion.div>
+      ))}
     </section>
   )
 }

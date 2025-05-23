@@ -36,16 +36,6 @@ export default function Hero() {
               >
                 Book a Demo
               </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.07 }}
-                whileTap={{ scale: 0.97 }}
-                className="group flex items-center justify-center gap-2 bg-white text-blue-500 px-8 py-4 rounded-lg border border-blue-400 hover:bg-blue-50 transition-all duration-300"
-              >
-                <svg className="w-6 h-6 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                </svg>
-                Watch Video
-              </motion.button>
             </div>
           </motion.div>
           <motion.div
