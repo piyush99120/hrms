@@ -166,7 +166,7 @@ export default function Features() {
           Features & Capabilities
         </h2>
         {/* Icon Tab Navigation */}
-        <div className="flex justify-center gap-6 mb-10">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-10">
           {Object.entries(features).map(([key, feat]) => (
             <button
               key={key}
