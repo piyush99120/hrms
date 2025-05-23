@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   CheckCircle2, Users, Wallet, Building2, Settings2,
-  FileText, Briefcase, ClipboardList, Star, CalendarCheck2, UserCheck, ShieldCheck, TrendingUp, Banknote, Globe, Layers, UserCog, FileSpreadsheet, FolderCog, ArrowUpRight, ArrowDownLeft, UserPlus, UserMinus, FileCheck2, FileX2, FilePlus2, FileMinus2, FileSearch2, User2, Users2, Building, Settings, DollarSign, Award, Lock, Key, Globe2, MapPin, Map, Flag, Home, Layers2, ClipboardCheck, ClipboardX, ClipboardPlus, ClipboardMinus, Clock
+  FileText, Briefcase, ClipboardList, Star, CalendarCheck2, UserCheck, ShieldCheck, Banknote, Layers, UserCog, FileSpreadsheet, ArrowUpRight, ArrowDownLeft, UserPlus, Clock, User2, Users2, DollarSign, Award, Settings
 } from 'lucide-react'
 
 // Example icon mapping for details (add more as needed)
@@ -21,7 +21,7 @@ const detailIcons: Record<string, React.ReactNode> = {
   'Leave Approval': <CheckCircle2 className="w-6 h-6" />,
   'Rule Name Master': <ClipboardList className="w-6 h-6" />,
   'Rule Manager SetUp': <UserCog className="w-6 h-6" />,
-  'Rule Manager Set Up Register': <ClipboardCheck className="w-6 h-6" />,
+  'Rule Manager Set Up Register': <ClipboardList className="w-6 h-6" />, // Changed from ClipboardCheck as it was unused
   'Salary Allowance': <Banknote className="w-6 h-6" />,
   'Salary Configuration': <Settings2 className="w-6 h-6" />,
   'Bonus Type Master': <Award className="w-6 h-6" />,
